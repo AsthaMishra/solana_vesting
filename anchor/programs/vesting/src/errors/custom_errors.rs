@@ -12,4 +12,6 @@ pub enum CustomErrors {
     InvalidTotalAmountVested,
     #[msg("The provided total amount claimed is not a valid")]
     InvalidTotalAmountClaimed,
+    #[msg("Claim not available yet")]
+    ClaimNotAvailableYet,
 }
