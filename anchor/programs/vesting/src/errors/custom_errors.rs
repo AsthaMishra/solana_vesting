@@ -14,4 +14,12 @@ pub enum CustomErrors {
     InvalidTotalAmountClaimed,
     #[msg("Claim not available yet")]
     ClaimNotAvailableYet,
+    #[msg("The provided vesting duration is not a valid")]
+    InvalidVestingDuration,
+    #[msg("Calculation error in total amount claimed")]
+    CalculationErrorInVestedAmount,
+    #[msg("No tokens Left to Claim")]
+    NoTokenLeftToClaim,
+    #[msg("Claimable amount exceeds the total amount claimed")]
+    ClaimableVestedTokenExceedsAlottedVestedToken,
 }
