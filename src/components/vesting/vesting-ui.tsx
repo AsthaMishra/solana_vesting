@@ -7,15 +7,15 @@ import { ExplorerLink } from '../cluster/cluster-ui'
 import { useVestingProgram, useVestingProgramAccount } from './vesting-data-access'
 
 export function VestingCreate() {
-  const { initialize } = useVestingProgram()
+  const { createEmployerVestingAccount } = useVestingProgram()
 
   return (
     <button
       className="btn btn-xs lg:btn-md btn-primary"
-      onClick={() => initialize.mutateAsync(Keypair.generate())}
-      disabled={initialize.isPending}
+      onClick={() => createEmployerVestingAccount.mutateAsync(Keypair.generate())}
+      disabled={createEmployerVestingAccount.isPending}
     >
-      Create {initialize.isPending && '...'}
+      Create {createEmployerVestingAccount.isPending && '...'}
     </button>
   )
 }
@@ -54,7 +54,7 @@ export function VestingList() {
 }
 
 function VestingCard({ account }: { account: PublicKey }) {
-  const { accountQuery, incrementMutation, setMutation, decrementMutation, closeMutation } = useVestingProgramAccount({
+  const { accountQuery, createEmployeeVestingAccount } = useVestingProgramAccount({
     account,
   })
 
@@ -72,8 +72,8 @@ function VestingCard({ account }: { account: PublicKey }) {
           <div className="card-actions justify-around">
             <button
               className="btn btn-xs lg:btn-md btn-outline"
-              onClick={() => incrementMutation.mutateAsync()}
-              disabled={incrementMutation.isPending}
+              onClick={() => createEmployeeVestingAccount.mutateAsync()}
+              disabled={createEmployeeVestingAccount.isPending}
             >
               Increment
             </button>

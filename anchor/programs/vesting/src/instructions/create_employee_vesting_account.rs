@@ -13,10 +13,10 @@ pub fn create_employee_vesting_account(
     end_time: i64,
     total_amount_vested: u64,
 ) -> Result<()> {
-    if start_time <= 0 || start_time >= cliff_time {
+    if start_time < 0 || start_time > cliff_time {
         return Err(CustomErrors::InvalidStartTime.into());
     }
-    if cliff_time <= 0 || cliff_time >= end_time {
+    if cliff_time > end_time {
         return Err(CustomErrors::InvalidCliffTime.into());
     }
     if total_amount_vested == 0 {
