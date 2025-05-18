@@ -12,7 +12,7 @@ export function VestingCreate() {
   return (
     <button
       className="btn btn-xs lg:btn-md btn-primary"
-      onClick={() => createEmployerVestingAccount.mutateAsync(Keypair.generate())}
+      onClick={() => createEmployerVestingAccount.mutateAsync()}
       disabled={createEmployerVestingAccount.isPending}
     >
       Create {createEmployerVestingAccount.isPending && '...'}
